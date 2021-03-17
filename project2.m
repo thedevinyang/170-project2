@@ -37,6 +37,8 @@ function [bestAccuracy, bestFeatures] = forwardSelect(dataset, numFeatures, numI
     currAccuracy = 0;
     bestAccuracy = 0;
     tempAccuracy = 0;
+    currAccuracy = LOOCrossValidation(dataset, currFeatures, numInstances) * 100; % Checks the accuracy of the empty list
+    disp(['Feature set {', num2str(currFeatures) , '} has an accuracy of ', num2str(currAccuracy), '%.']);
     for i = 1:numFeatures
         disp(['On level ', num2str(i), ' of the search tree.']);
         disp(['Adding features to {', num2str(currFeatures), '}.'])
